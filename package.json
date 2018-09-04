@@ -1,0 +1,25 @@
+{
+  "name": "blog-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^3.0.1",
+    "@material-ui/icons": "^3.0.1",
+    "ajv": "^6.5.3",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-markdown": "^3.5.0",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.5",
+    "recharts": "^1.1.0",
+    "typeface-roboto": "0.0.54"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "predeploy": "react-scripts build",
+    "deploy": "aws s3 cp build s3://srivardhan-jalan-blog --recursive",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
