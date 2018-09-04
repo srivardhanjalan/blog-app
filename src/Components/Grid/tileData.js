@@ -1,6 +1,6 @@
 const tileData = [
   {
-    img: 'https://best-wallpaper.net/wallpaper/1920x1080/1211/New-Year-Christmas-tree-decoration-snow-twigs-berries_1920x1080.jpg',
+    img: 'https://s3-eu-west-1.amazonaws.com/anuevayork/wp-content/uploads/2015/02/22122345/Que-ver-Times-Square-Nueva-York-1500-4.jpg',
     title: 'Camera',
     author: 'Danson67'
   },
