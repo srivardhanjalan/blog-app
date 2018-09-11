@@ -7,6 +7,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
 import orange from '@material-ui/core/colors/orange';
 import { HashRouter } from 'react-router-dom'
+import AccessRoute from './Components/Layout/AccessRoute'
 
 const theme = createMuiTheme({
   palette: {
@@ -22,7 +23,9 @@ function Root() {
   return (
     <MuiThemeProvider theme={theme}>
       <HashRouter>
-        <App />
+        <AccessRoute>
+          <App />
+        </AccessRoute>
       </HashRouter>
     </MuiThemeProvider>
   );
