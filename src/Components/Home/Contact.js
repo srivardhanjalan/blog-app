@@ -16,37 +16,9 @@ class Contact extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      body: ""
-    }
-  }
-
-  componentDidMount() {
-    var badge = this.cardActionsBuilder();
-    this.setState({body: badge})
-    console.log(this.state.body);
-  }
-
-  cardActionsBuilder() {
-    return (
-      <div className="LI-profile-badge"
-        data-version="v1"
-        data-size="large"
-        data-locale="en_US"
-        data-type="vertical"
-        data-theme="dark"
-        data-vanity="srivardhanjalan">
-          <a className="LI-simple-link"
-            href='https://www.linkedin.com/in/srivardhanjalan?trk=profile-badge'>
-            Srivardhan Jalan
-          </a>
-      </div>
-      )
   }
 
   render() {
-
-    console.log(this.state.body);
 
     const { classes } = this.props;
 
@@ -54,7 +26,18 @@ class Contact extends Component {
       <React.Fragment>
         <Grid container spacing={32} alignContent="center" alignItems="center">
           <Grid item sm={6} md={6} lg={4}>
-            {this.state.body}
+            <div className="LI-profile-badge"
+              data-version="v1"
+              data-size="large"
+              data-locale="en_US"
+              data-type="vertical"
+              data-theme="dark"
+              data-vanity="srivardhanjalan">
+                <a className="LI-simple-link"
+                  href='https://www.linkedin.com/in/srivardhanjalan?trk=profile-badge'>
+                  Srivardhan Jalan
+                </a>
+            </div>
           </Grid>
           <Grid item sm={6} md={6} lg={4}>
             <div className="LI-profile-badge"
@@ -101,10 +84,6 @@ class Contact extends Component {
             </div>
           </Grid>
         </Grid>
-
-
-
-
       </React.Fragment>
     );
   }
