@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
@@ -12,33 +12,102 @@ import AdvancedCard from '../Card/AdvancedCard'
 const styles = theme => ({
 });
 
-function Contact(props) {
-  const { classes } = props;
+class Contact extends Component {
 
-  return (
-    <React.Fragment>
-      <Grid container spacing={16}>
-        <Grid item xs={12} sm={6} md={6} lg={6}>
-          <MediaControlCard></MediaControlCard>
-          <br/>
-          <MediaControlCard></MediaControlCard>
-          <br/>
-          <MediaControlCard></MediaControlCard>
-          <br/>
-          <MediaControlCard></MediaControlCard>
-          <br/>
-          <MediaControlCard></MediaControlCard>
-          <br/>
-          <MediaControlCard></MediaControlCard>
+  constructor(props) {
+    super(props);
+    this.state = {
+      body: ""
+    }
+  }
+
+  componentDidMount() {
+    var badge = this.cardActionsBuilder();
+    this.setState({body: badge})
+    console.log(this.state.body);
+  }
+
+  cardActionsBuilder() {
+    return (
+      <div className="LI-profile-badge"
+        data-version="v1"
+        data-size="large"
+        data-locale="en_US"
+        data-type="vertical"
+        data-theme="dark"
+        data-vanity="srivardhanjalan">
+          <a className="LI-simple-link"
+            href='https://www.linkedin.com/in/srivardhanjalan?trk=profile-badge'>
+            Srivardhan Jalan
+          </a>
+      </div>
+      )
+  }
+
+  render() {
+
+    console.log(this.state.body);
+
+    const { classes } = this.props;
+
+    return (
+      <React.Fragment>
+        <Grid container spacing={32} alignContent="center" alignItems="center">
+          <Grid item sm={6} md={6} lg={4}>
+            {this.state.body}
+          </Grid>
+          <Grid item sm={6} md={6} lg={4}>
+            <div className="LI-profile-badge"
+              data-version="v1"
+              data-size="large"
+              data-locale="en_US"
+              data-type="vertical"
+              data-theme="light"
+              data-vanity="srivardhanjalan">
+              <a className="LI-simple-link"
+                href='https://www.linkedin.com/in/srivardhanjalan?trk=profile-badge'>
+                Srivardhan Jalan
+              </a>
+            </div>
+          </Grid>
         </Grid>
-        <Grid item xs={12} sm={6} md={6} lg={6}>
-          <MediaCard></MediaCard>
-          <br/>
-          <AdvancedCard></AdvancedCard>
+        <Grid container spacing={32}>
+          <Grid item sm={6} md={6} lg={4}>
+            <div className="LI-profile-badge"
+              data-version="v1"
+              data-size="large"
+              data-locale="en_US"
+              data-type="horizontal"
+              data-theme="dark"
+              data-vanity="srivardhanjalan">
+              <a className="LI-simple-link"
+                href='https://www.linkedin.com/in/srivardhanjalan?trk=profile-badge'>
+                Srivardhan Jalan
+              </a>
+            </div>
+          </Grid>
+          <Grid item sm={6} md={6} lg={4}>
+            <div className="LI-profile-badge"
+              data-version="v1"
+              data-size="large"
+              data-locale="en_US"
+              data-type="horizontal"
+              data-theme="light"
+              data-vanity="srivardhanjalan">
+              <a className="LI-simple-link"
+                href='https://www.linkedin.com/in/srivardhanjalan?trk=profile-badge'>
+                Srivardhan Jalan
+              </a>
+            </div>
+          </Grid>
         </Grid>
-      </Grid>
-    </React.Fragment>
-  );
+
+
+
+
+      </React.Fragment>
+    );
+  }
 }
 
 Contact.propTypes = {

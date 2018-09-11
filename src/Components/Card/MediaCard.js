@@ -9,33 +9,25 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-const styles = {
+const styles = theme => ({
   media: {
     height: "40%",
   },
-};
+  invertColor: {
+    backgroundColor: theme.palette.grey[800],
+    color: theme.palette.common.white
+  },
+  largeContent: {
+    padding: `${theme.spacing.unit * 6}px`,
+    [theme.breakpoints.up('md')]: {
+      paddingRight: 0,
+    },
+  },
+});
 
-function MediaCard(props) {
-  const { classes } = props;
-  return (
-    <Card>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          className={classes.media}
-          image="https://techcrunch.com/wp-content/uploads/2017/06/gettyimages-494545485.jpg?w=730&crop=1"
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="headline" component="h2">
-            Lizard
-          </Typography>
-          <Typography component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
-          </Typography>
-        </CardContent>
-      </CardActionArea>
+function CardActionsBuilder(displayActions) {
+  if(displayActions) {
+    return (
       <CardActions>
         <Button size="small" color="primary">
           Share
@@ -44,6 +36,35 @@ function MediaCard(props) {
           Learn More
         </Button>
       </CardActions>
+    )
+  }
+}
+
+function MediaCard(props) {
+  const { classes, displayActions, invertColor, largeContent, post } = props;
+
+  return (
+    <Card>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          className={classes.media}
+          image={post.ImageUrl}
+          title={post.Title}
+        />
+      <CardContent className = {`
+                      ${invertColor === true ? classes.invertColor : ''}
+                      ${largeContent === true ? classes.largeContent : ''}
+                      `}>
+          <Typography gutterBottom variant="headline" component="h2" color="inherit">
+            {post.Title}
+          </Typography>
+          <Typography component="p" color="inherit">
+            {post.Body}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      {CardActionsBuilder(displayActions)}
     </Card>
   );
 }
