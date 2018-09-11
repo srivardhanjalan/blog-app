@@ -8,7 +8,6 @@ import Grid from '@material-ui/core/Grid';
 import axios from 'axios'
 import service from '../Service'
 
-import LargeMediaCard from '../Card/LargeMediaCard'
 import MediaCard from '../Card/MediaCard'
 import SingleLineGridList from '../Grid/SingleLineGridList'
 import MediaCardHorizontal from '../Card/MediaCardHorizontal'
